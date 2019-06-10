@@ -1,7 +1,6 @@
 import nav from "./nav";
 import {
-    top,
-    bottom
+    footer
 } from "./footer";
 import makeButton from "./button";
 import {
@@ -9,5 +8,15 @@ import {
     blue,
     makeColorStyle
 } from './buttonStyles';
+import css from "./footer.css";
 
-console.log(nav(), top, bottom, makeButton("My First Button!"), makeColorStyle("cyan"));
+console.log(css);
+const button = makeButton("Wow, a button!");
+
+button.style = makeColorStyle("cyan")
+document.body.appendChild(button);
+document.body.appendChild(footer);
+
+
+
+// console.log(nav(), top, bottom, makeButton("My First Button!"), makeColorStyle("cyan"));
