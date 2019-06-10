@@ -13,14 +13,20 @@ module.exports = ({
 }) => {
 
     return webpackMerge({
-        mode,
-        output: {
-            filename: "bundle.js",
+            mode,
+            module: {
+                rules: [{
+                    test: /\.jpg/, 
+                    use: "url-loader"      
+                }]
+            },
+            output: {
+                filename: "bundle.js",
+            },
+            plugins: [
+                new HtmlWebpackPlugin(),
+                new webpack.ProgressPlugin()
+            ]
         },
-        plugins: [
-            new HtmlWebpackPlugin(),
-            new webpack.ProgressPlugin()
-        ]
-    }, 
         modeConfig(mode));
 }
